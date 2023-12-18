@@ -47,6 +47,15 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ }))
 
 :colorscheme jellybeans
+
+function! ToggleMouse()
+	if &mouse == 'a'
+		set mouse=
+	else
+		set mouse=a
+	endif
+endfunction
+
 autocmd VimEnter * TerminalSplit bash
 autocmd VimEnter * NERDTreeToggle
 autocmd VimEnter * TagbarToggle
@@ -55,3 +64,4 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-b> :TagbarToggle<CR>
 nnoremap <C-n> :tabnew<CR>
 nnoremap <C-w> :tabclose<CR>
+nnoremap <C-m> :call ToggleMouse()
