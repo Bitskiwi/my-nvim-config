@@ -3,7 +3,11 @@ syntax on
 set number
 "set relativenumber
 set autoindent
-
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set whichwrap+=<,>,h,l
+set backspace=indent,eol,start
 set fillchars+=eob:│
 
 call plug#begin()
@@ -27,9 +31,9 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
-Plug 'https://github.com/tc50cal/vim-terminal'
-Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+Plug 'tc50cal/vim-terminal'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 call plug#end()
 
@@ -41,7 +45,7 @@ call wilder#setup({'modes': [':', '/', '?']})
 
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
-      \ 'pumblend': 50,
+      \ 'pumblend': 0,
       \ 'left': [
       \   ' ', wilder#popupmenu_devicons(),
       \ ],
@@ -50,7 +54,7 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ ],
       \ }))
 
-:colorscheme jellybeans
+:colorscheme alduin
 
 function! ToggleMouse()
 	if &mouse == 'a'
@@ -62,16 +66,12 @@ function! ToggleMouse()
 	endif
 endfunction
 
-autocmd VimEnter * TerminalSplit bash
-autocmd VimEnter * NERDTreeToggle
-autocmd VimEnter * TagbarToggle
-
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-b> :TagbarToggle<CR>
 nnoremap <C-n> :tabnew<CR>
 nnoremap <C-w> :tabclose<CR>
 nnoremap <C-m> :call ToggleMouse()<CR>
-nnoremap <C-z> :u<CR>
-nnoremap <C-s> :w<CR>
+"nnoremap <C-z> :u<CR>
+"nnoremap <C-s> :w<CR>
 
 call feedkeys("\<Esc>",'n')
