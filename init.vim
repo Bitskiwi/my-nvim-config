@@ -14,6 +14,8 @@ set listchars=tab:│• ,trail:•
 
 call plug#begin()
 
+
+
 if has('nvim')
 	function! UpdateRemotePlugins(...)
 	" Needed to refresh runtime files
@@ -35,7 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tc50cal/vim-terminal'
 Plug 'rafi/awesome-vim-colorschemes'
-"Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 call plug#end()
 
@@ -70,11 +72,11 @@ endfunction
 
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-b> :TagbarToggle<CR>
-nnoremap <C-n> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
+nnoremap <C-n> :new<CR>
+nnoremap <C-w> :close<CR>
 nnoremap <C-m> :call ToggleMouse()<CR>
 nnoremap <C-z> :u<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <C-y> :TerminalSplit bash<CR>
+nnoremap <C-y> :terminal<CR>
 
 call feedkeys("\<Esc>",'n')
