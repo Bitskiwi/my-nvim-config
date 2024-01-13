@@ -11,6 +11,7 @@ set backspace=indent,eol,start
 set fillchars+=eob:│
 set list
 set listchars=tab:│• ,trail:•
+set cursorline
 
 call plug#begin()
 
